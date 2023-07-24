@@ -1,32 +1,27 @@
 import 'dart:ffi';
 
+import 'package:first/route/class_route.dart';
+import 'package:first/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Myapp());
+  return runApp(MyApp());
 }
 
-class Myapp extends StatelessWidget {
+class MyApp extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.lightGreen,
-            title: Text("Mohammed Eldani"),
-          ),
-          body: Container(
-            color: Colors.greenAccent,
-            alignment: Alignment.center,
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  Text("The Leader "),
-                  Text("The Leader "),
-                  Text("The Leader "),
-                  Text("The Leader "),
-                ]),
-          )),
+      debugShowCheckedModeBanner: false,
+      initialRoute:Routes.splashScreen ,
+
+      routes: {
+        Routes.splashScreen: (context) => splashScreen(),
+        Routes.MyApp: (context) => MyApp(),
+
+      },
     );
   }
 }
